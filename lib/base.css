@@ -1,0 +1,34 @@
+@charset "utf-8";
+/*全局样式*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+/*body样式*/
+body{
+    font-size:14px;
+    font-family:"Microsoft YaHei","SansSerif";
+    color:#000;
+}
+/*A的样式*/
+a{
+    text-decoration:none;
+    color:#000;
+}
+ul{
+    list-style:none;
+}
+input,textarea{
+    outline:none;
+    border:none;
+    resize:none;
+}
+.learfix:after{
+    content:"";
+    height:0;
+    visibility:hidden;
+    line-height:0;
+    clear:both;
+}
