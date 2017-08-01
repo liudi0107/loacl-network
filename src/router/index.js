@@ -18,6 +18,8 @@ import  chu from "@/components/chu"
 import  liang from "@/components/liang"
 import  qiT from "@/components/qiT"
 import  zhu from "@/components/zhu"
+import  zhan from "@/components/zhan"
+
 
 Vue.use(Router)
 
@@ -118,6 +120,11 @@ export default new Router({
       path:"/zhu",
       name:"zhu",
       component:zhu
+    },
+    {
+      path:"/zhan/:id",
+      name:"zhan",
+      component:zhan
     }
     
   ]

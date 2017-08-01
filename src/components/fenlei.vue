@@ -165,8 +165,10 @@ methods:{
 		margin: 0;
 		padding: 0;
 		box-sizing:border-box;
-		list-style: none; 	
+		list-style: none; 
+
 	}
+
 	a{
 		color: black;
 	}
@@ -189,17 +191,23 @@ methods:{
 		width: 100%;
 		overflow: hidden;
 		position: relative;
+      /*加上一个滚动条*/
+       overflow-x: scroll;
+      /*-webkit-overflow-scrolling: touch;*/
+      /*white-space: nowrap;*/
+      /*::-webkit-scrollbar{ display:none;}*/
+
 	}
 	.fenlei .ul1{
-		width: 100%;
+		width: 150%;
 		height: 49px;
 		background: #f8f8f8;
 		line-height: 49px;
 		list-style: none;
-		display: flex;
+		display: flex;             
 	}
 	.fenlei .ul1 li{
-		width: 25%;
+		width: 40%;
 
 	}
 	.fenlei .ul1 li a{

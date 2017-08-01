@@ -1,6 +1,6 @@
 <template>
   <div class="lei">
-  	<dl v-for="a in lei">
+  	<dl v-for="a in lei" @click="tiao(a.num)">
 		<dd :class="a.cla"></dd>
 		<dt>{{a.p}}</dt>
   	</dl>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import cha from "@/components/cha"
 export default {
   name: 'lei',
   data () {
@@ -15,39 +16,65 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       lei:[
       	{	p:"茶叶",
-      		cla:"cha"
+      		cla:"cha",
+      		to:"/fenlei",
+      		num:0
+
       	},
       	{
       		p:"酒/饮料",
-      		cla:"jiu"
+      		cla:"jiu",
+      		to:"/Fjiu",
+      		num:1
       	},
       	{
       		p:"保健食品",
-      		cla:'bao'
+      		cla:'bao',
+      		to:"/Fbao",
+      		num:2
       	},
       	{
       		p:"休闲食品",
-      		cla:"xiu"
+      		cla:"xiu",
+      		to:"/Fxiu",
+      		num:3
       	},
       	{
       		p:"干货特产",
-      		cla:"te"
+      		cla:"te",
+      		to:"/gan",
+      		num:4
       	},
       	{
       		p: "厨房调料",
-      		cla:"chu"
+      		cla:"chu",
+      		to:"/chu",
+      		num:5
       	},
       	{
       		p:"粮油米面",
-      		cla:"mi"
+      		cla:"mi",
+      		to:"/liang",
+      		num:6
       	},
       	{
       		p:"其他",
-      		cla:"qi"
+      		cla:"qi",
+      		to:"/qiT",
+      		num:7
+
       	}
       ]
     }
+  },
+  methods:{
+  	tiao:function(index){  
+  			//获取return对象的值
+  			console.log(this.$data)		
+  			this.$router.push(this.$data.lei[index].to)  		
+  	}
   }
+
 }
 </script>
 

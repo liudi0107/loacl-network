@@ -8,8 +8,8 @@
    			</router-link>	
    		</li>
    		
-   	</ul>
-   	<router-view></router-view> 	
+   </ul>
+   <router-view></router-view> 	
   </div>	
 </template>
 
@@ -29,6 +29,7 @@ export default {
     		to:"/",
     		bian:"bian1",
     		activeClass:"hua1"
+
     		
 
     	},
@@ -63,11 +64,8 @@ export default {
 
 
 
-  // methods:{
-  // 	dian:function(index) {
-  // 		this[index].
-  // 	}
-  // }
+
+
 
   
 }

@@ -7,11 +7,11 @@
       <form action="">
         <p>
           <span class="deng" ></span>
-          <input type="text" placeholder="用户名（字母或数字，长度6至24个字）">
+          <input type="text" placeholder="用户名（字母或数字，长度6至24个字）" v-model="username">
         </p>
         <p>
           <span class="mi" ></span>
-          <input type="password" placeholder="请输入您的密码">
+          <input type="password" placeholder="请输入您的密码" v-model="password">
         </p>
         <p>
           <span class="mi" ></span>
@@ -36,17 +36,23 @@
           <span class="yaoqingma" ></span>
           <input type="text" placeholder="请输入您推荐人的邀请码">
         </p>
-        <input type="button" value="立即注册" >
+        <p v-show="isshow" class="xian">{{zi}}</p>
+        <input type="button" value="立即注册" v-on:click="zhu()">
       </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'zhu',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      username:"",
+      password:"",
+      isshow:false,
+      zi:""
     }
   },
 
@@ -55,8 +61,40 @@ export default {
     houtui:function(){
       console.log(1)
         this.$router.go(-1)
+    },
+    zhu(){
+      
+    if(this.username == "" || this.password == ""){
+        alert("请输入用户名或密码")
+    }else{
+        let data = {'username':this.username,'password':this.password}
+        
+        axios.post('http://localhost:6500/xiang',data,{
+          headers:{'Content-Type':'application/json'}
+        }).then((res)=>{
+         this.isshow=true
+         this.zi="注册成功"
+          setTimeout(function(){
+            this.$router.push('/vip')  
+          }.bind(this),1000)
+            
+        // if(res.data == "ok"){
+        //     this.tishi = "注册成功"
+        //     this.showTishi = true
+        //     this.username = ''
+        //     this.password = ''
+        //      /*注册成功之后再跳回登录页*/
+        //     setTimeout(function(){
+        //         this.showRegister = false
+        //         this.showLogin = true
+        //         this.showTishi = false
+        //     }.bind(this),1000)
+        // }
+        })
     }
-  }}
+  }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -191,6 +229,10 @@ export default {
   .zhu form input[type=button]{
     background-color: green;
     color: white;
+    font-size: 20px;
+  }
+  .xian{
+    color: green;
     font-size: 20px;
   }
 </style>
