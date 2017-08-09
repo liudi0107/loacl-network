@@ -4,6 +4,7 @@
    	<lunbo></lunbo>
    	<lei></lei>
    	<daohang></daohang>
+    
   </div>
   
 </template>
@@ -18,6 +19,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+
     }
   },
   components:{
@@ -39,4 +41,5 @@ export default {
 	.hello{
 		width: 100%;
 	}
+
 </style>

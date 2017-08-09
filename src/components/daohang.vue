@@ -1,8 +1,8 @@
 <template>
   <div class="daohang">
    	<ul>
-   		<li v-for="a in dao" :class="[a.bian,a.activeClass]" >
-   			<router-link :to="a.to" exact>
+   		<li v-for="a in dao" >
+   			<router-link :to="a.to"  active-class="aa" exact>
    				<p class="p1">{{a.p1}}</p>
    				<p class="p2">{{a.p2}}</p>	
    			</router-link>	
@@ -29,6 +29,7 @@ export default {
     		to:"/",
     		bian:"bian1",
     		activeClass:"hua1"
+       
 
     		
 
@@ -39,35 +40,32 @@ export default {
     		to:"/rou",
     		bian:"bian1",
     		activeClass:"hua1"
+       
     		
     	},
     	{
     		p1:"热销特产",
     		p2:"全场优大酬",
     		to:"/re"
+       
 
     	},
     	{
     		p1:"新品推荐",
     		p2:"全场优惠大酬",
     		to:"/newp"
+       
     	},
     	{
     		p1:"其他",
     		p2:"",
     		to:"/qi"
+       
     	}
     ]
     }
     
-  }
-
-
-
-
-
-
-  
+  }  
 }
 </script>
 
@@ -77,15 +75,23 @@ export default {
 		margin: 0;
 		padding: 0;
 	}
+  .aa{
+    background:#ccc;
+    width: 100%;
+    height: 100%;
+   color: white;
+   font-size: 20px;
+    display: inline-block;
+  }
 	.daohang{
-		margin-top:12px;
+		margin-top:15px;
 	}
-	.daohang ul{
-		width: 100%;
+	.daohang ul{ 
+		width: 95%;
 		display: flex;
 		flex-wrap:wrap;
-		padding-left: 7%;
 		list-style: none;
+    justify-content: center;
 	}
 	.daohang ul li{
 		width: 30%;
@@ -98,17 +104,17 @@ export default {
 		line-height: 29px;
 	}
 	.daohang ul li .p1{
-		color:#428bca;
+		color: rgba(15, 0, 255, 0.61);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 35px;
 	}
 	.daohang ul li .p2{
-		color:#999999;
-		font-size: 13px;
+		color:#fe7c23;
+		font-size: 15px;
 	}
 	.bian1{
 		border:1px solid #ccc;
-	}
-	.router-link-active .p1{
-		border:1px solid red;
 	}
 	
 	

@@ -3,7 +3,7 @@
     <router-view></router-view>
     <ul class="tebbar">
       <li>
-        <router-link   to="/"  class="a1"  active-class="a5" >首页</router-link>
+        <router-link   to="/"  class="a1"  active-class="a5" exact>首页</router-link>
       </li>
       <li>
         <router-link to="/fenlei" class="a2"  active-class="a6">分页</router-link>
@@ -15,17 +15,19 @@
         <router-link to="/vip" class="a4" active-class="a8">vip</router-link>
       </li>
     </ul>
+  
   </div>
 </template>
 
 <script>
-
+import animate from "@/assets/animate.min.css"
 export default {
   name: 'app'  
 }
 </script>
 
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -63,12 +65,17 @@ export default {
   font-size: 12px;
   line-height: 73px;
   background-position: left;
+  
+    
+
 }
 .tebbar .a1{
   background-position: 50% 4px;
+  transtion:left 0.3 ease-out;
 }
 .tebbar .a2{
   background-position:50% -50px;
+  transtion:left 0.3 ease-out;
 }
 .tebbar .a3{
   background-position:46% -105px;
@@ -89,4 +96,5 @@ export default {
 .tebbar  .a8{
   background-position: 49% -364px;
 }
+
 </style>

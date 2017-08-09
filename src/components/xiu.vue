@@ -1,8 +1,6 @@
 <template>
   <div class="xiu">
-  		<ul class="lei">
-        <li v-for="obj in arr">{{obj.li}}</li>
-    </ul>
+  	
   </div>
 </template>
 

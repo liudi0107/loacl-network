@@ -1,5 +1,8 @@
+// 注入vue
 import Vue from 'vue'
+// 引入路由
 import Router from 'vue-router'
+// 引入组件
 import Hello from '@/components/Hello'
 import Fen from "@/components/fenlei"
 import Car from "@/components/car"
@@ -19,7 +22,18 @@ import  liang from "@/components/liang"
 import  qiT from "@/components/qiT"
 import  zhu from "@/components/zhu"
 import  zhan from "@/components/zhan"
+import zhifu from "@/components/zhifu"
+import geren from "@/components/geren"
 
+
+// 实例化组件
+// new Vue({
+//   el:"app",
+//   template:"<h1></h1>",
+//   components:{
+//     hello
+//   }
+// })
 
 Vue.use(Router)
 
@@ -125,6 +139,16 @@ export default new Router({
       path:"/zhan/:id",
       name:"zhan",
       component:zhan
+    },
+    {
+      path:"/zhifu",
+      name:"zhifu",
+      component:zhifu
+    },
+    {
+      path:"/geren",
+      name:"geren",
+      component:geren
     }
     
   ]

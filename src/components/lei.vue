@@ -1,6 +1,6 @@
 <template>
   <div class="lei">
-  	<dl v-for="a in lei" @click="tiao(a.num)">
+  	<dl v-for="a in lei" @click="tiao(a.num)" class="slide">
 		<dd :class="a.cla"></dd>
 		<dt>{{a.p}}</dt>
   	</dl>
@@ -9,6 +9,7 @@
 
 <script>
 import cha from "@/components/cha"
+import animate from "../assets/animate.min.css"
 export default {
   name: 'lei',
   data () {
@@ -85,11 +86,13 @@ export default {
 		padding: 0;
 		box-sizing:border-box;
 	}
+	.slide{
+		transtion:left 0.3 ease-out;
+	}
 	.lei{
-		width: 100%;
-		/*height: 165px;*/
+		width: 95%;
+		margin: auto;
 		display: flex;
-		/*border: 1px solid;*/
 		flex-wrap:wrap;
 	}
 	.lei>dl{

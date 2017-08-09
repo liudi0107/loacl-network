@@ -1,8 +1,6 @@
 <template>
   <div class="chu">
-  		<ul class="lei">
-        <li v-for="obj in arr">{{obj.li}}</li>
-    </ul>
+      <!-- <iframe src="http://www.baidu.com" frameborder="0"></iframe> -->
   </div>
 </template>
 

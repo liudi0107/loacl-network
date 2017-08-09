@@ -1,45 +1,30 @@
 <template>
   <div class="cha">
-   	<ul class="lei">
-   		<li v-for="obj in arr">{{obj.li}}</li>
-   	</ul>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'cha',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      arr:[
-      		{
-      			li:"花草茶"
-      		},
-      		{
-      			li:"绿茶"
-      		},
-      		{
-      			li:"黑茶"
-      		},
-      		{
-      			li:"乌龙茶"
-      		},
-      		{
-      			li:"红茶"
-      		},
-      		{
-      			li:"白茶"
-      		},
-      		{
-      			li:"名茶套装"
-      		},
-      		{
-      			li:"其他名茶"
-      		}
-
-      ]
+      qielei:"",
+      arr:[]
     }
+  },
+  methods:{
+    qiehuan:function(a){
+       this.qielei=a;
+       this.$router.push({path:"/fenlei",query:{id:this.qielei} })
+    }
+  },
+  created(){
+    var that=this
+    axios.get("../static/cha.json").then(function(res){
+      that.arr=res.data
+    })
   }
 }
 </script>

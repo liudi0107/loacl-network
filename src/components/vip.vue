@@ -1,7 +1,8 @@
+<!-- 登录页面 -->
 <template>
   <div class="vip">
 	   <div class="head">
-			<span @click='tui()'><</span>
+			<span @click='tui()' class="tui"></span>
 			<h2>登录</h2>
 	  	</div>
    		<form action="">
@@ -16,12 +17,15 @@
    			
    			<p class="zi"><a>忘记密码？点我找回</a><span><a  @click="zhu(1)">我要注册</a></span></p>
    			<p v-show="showTishi" class="ti">{{tishi}}</p>
-   			<input type="button" value="登录" v-on:click="deng()">
+   			<input type="button" value="登录" v-on:click.enter="deng()">
    		</form>
   </div>
 </template>
 
 <script>
+var Hub =new Vue();
+import Vue from "vue"
+// 引入cook的js文件，自己封装的方法
 import {setCookie,getCookie} from '../assets/cookie.js'
 import axios from 'axios'
 export default {
@@ -32,28 +36,36 @@ export default {
 	      showTishi:false,
 	      username:"",
 	      password:"",
-	      tishi:""
+	      tishi:"",
+	      bool:"",
+	      obj:{}
 	    }
   	},
+  	mounted(){
+  		if(getCookie("username")){
+  			this.$router.push("/geren")
+  		}
+  	},
  	methods:{
+ 		//点击注册，跳转到注册页面
  		zhu:function(a){
  			this.$router.push('/zhu')
  		},
+ 		// 点击退出跳转到退出页面
     	tui:function(){
         	this.$router.go(-1)
     	},
-    	/*页面挂载获取cookie，如果存在username的cookie，则跳转到主页，不需登录*/
-		// if(getCookie('username')){
-		//     this.$router.push('/')
-		
-		// },
+    	// 登录的方法
 		deng:function(){
+			// 如果密码或者账户为空的时候，给一个提示
 	      	if(this.username == "" || this.password == ""){
             	alert("请输入用户名或密码")
         	}else{
+        		// 定义一个对象，将账户和密码已对象的形式存进去
 	            let data = {'username':this.username,'password':this.password}
-	            /*接口请求*/
+	            // /*接口请求*/ 将对象存入到后台系统中
 	            axios.post('http://localhost:6500/xiang/login',data,{
+	            	// 设置请求头，必须是json格式
 					headers:{'Content-Type':'application/json'}
 				}).then((res)=>{
 	             // /*接口的传值是(-1,该用户不存在),(0,密码错误)，同时还会检测管理员账号的值*/	
@@ -79,15 +91,24 @@ export default {
               		// }
               		//图书管理系统只能用这样简单验证
               		this.tishi = "登录成功"
-		            this.showTishi = true
+              		// 设置一个提示信息，成功以后显示，登录成功
+		            this.showTishi = true,
+		            this.bool=true,
+		            // Hub.$emit("change","hehe")
+		            // console.log(res.data)
+		            // 用户Id将用户ID存到sessionStorage中
+		            sessionStorage.uid=res.data.uid
+		            // 将账户名存到cookie中
 		            setCookie('username',this.username,1000*60)
+		            // 设置过1秒后跳转到首页
 	                setTimeout(function(){
-	                    this.$router.push('/')
+	                    this.$router.push('/geren')
 	                }.bind(this),1000)
           		}).catch(function(){
-          			console.log(123)
           			this.tishi = "登录失败"
-		            this.showTishi = true
+		            this.showTishi = true;
+		            this.bool=false;
+		            // 绑定this因为then将this指向该变了
           		}.bind(this))
 			}
 		}
@@ -107,6 +128,17 @@ export default {
 		background: #22292c;
 		display: flex;
 	}
+	.head .tui{
+    width: 19px;
+    height: 7%;
+    background: url(../../static/image/jd.png) no-repeat;
+    background-size: 273px;
+    /* margin-left: 20px; */
+    position: absolute;
+    left: 5%;
+    background-position: -27px 12px;
+
+  }
 	.vip .head span{
 		color: white;
 		font-size: 45px;
@@ -129,9 +161,9 @@ export default {
 		height: 45px;
 		position: absolute;
 		bottom:0;
-		background: url(/static/img/btn1.a17c16a.png);
-	    background-position: 292px -28px;
-	    background-size: 814px;
+		background: url(../../static/image/btn1.png);
+	    background-position: 265px -23px;
+    	background-size: 729px;
 	    
 	}
 	.vip form .mi{
@@ -141,8 +173,8 @@ export default {
 		position: absolute;
 		bottom:0;
 		background: url(/static/img/btn1.a17c16a.png);
-	    background-position: 103px -28px;
-	    background-size: 814px;
+	   	background-position: 91px -21px;
+   		background-size: 679px;
 	    
 	}
 	.vip form input{
@@ -178,5 +210,6 @@ export default {
 	}
 	.ti{
 		color: red;
+		
 	}
 </style>
