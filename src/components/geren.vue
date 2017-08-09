@@ -45,6 +45,10 @@
           <dd id="dd5"></dd>
           <dt>退出登录</dt>
         </dl>
+        <dl  @click="deng()">
+          <dd id="dd6"></dd>
+          <dt>登录</dt>
+        </dl>
     </div>
   </div>
 </template>
@@ -81,6 +85,9 @@ export default {
       },
       no(){
         this.mengxian=false
+      },
+      deng(){
+        this.$router.push("/vip")
       }
     }
   

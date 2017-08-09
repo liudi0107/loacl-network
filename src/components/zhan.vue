@@ -159,7 +159,7 @@ export default {
     //获取商品的id，通过ID获取对象，展示到页面上
     console.log(this.$data)
     this.obj1=this.$data.jian[this.$route.params.id-1];
-    // this.numm=getCookie("num")
+    this.numm=getCookie("num")
   },
   methods:{
     //点击上面箭头让也面返回
@@ -200,21 +200,19 @@ export default {
         // console.log(this.uid)
         // 通过用户Id获取用户信息
         axios.get("http://localhost:6500/xiang/"+this.uid).then((res)=>{
-          // console.log(res.data.zhan)
           // 如果id中zhan为空或者zhan的内容改变了执行
           if(res.data.zhan==""||!res.data.zhan){
             // console.log(123)
               this.addArr()
-              console.log(this.obj2)
                for(var aa  in this.obj2){
                 this.shuzu.push(aa)
-             
-            }
-             console.log(this.shuzu.length)
+              
              this.numm=this.shuzu.length-1
+             console.log(this.numm)
              if(this.numm>0){
               this.show=true
              }
+           }
               // 将接收的值转成字符串
               this.arrdataStr=JSON.stringify(this.obj2);
                // this.$router.push({path:"/car",query:{xian:this.xian} })
@@ -223,13 +221,10 @@ export default {
             this.obj2=JSON.parse(res.data.zhan);
             this.addArr()
              // 将接收的值转成字符串
-            console.log(this.obj2)
             for(var aa  in this.obj2){
                this.shuzu.push(aa)
-             
-             
             }
-             console.log(this.shuzu.length)
+            console.log(this.shuzu)
              this.numm=this.shuzu.length-1
              if(this.numm>0){
               this.show=true
@@ -338,7 +333,7 @@ export default {
   }
   .zhan .foot .price{
     height: 30px;
-    padding-top: 15px;
+    padding-top: 5px;
 
   }
   #danjia{
@@ -354,6 +349,7 @@ export default {
     color: rgba(34, 44, 34, 0.88);
     font-size: 17px;
     font-weight: 600;
+    line-height: 30px;
   }
   .zhan .car {
     width: 100%;

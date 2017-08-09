@@ -11,9 +11,9 @@
    	</dl>
 
       </router-link>
-       <a   href="javascript:scroll(0,0)"  v-show="scroll">
+       <a   href="javascript:void(0)"  v-show="scroll" @click="tiao()">
         <img src="../../static/image/top.jpg" alt="" class="top">
-    </a>
+      </a>
   </div>
 </template>
 
@@ -70,7 +70,9 @@ export default {
                 }, 20);
             }
         }
+        
     },
+
     methods:{
        dian:function(a) {
        console.log(a)    
@@ -78,7 +80,13 @@ export default {
        },
       handleScroll(){
         this.scroll=document.body.scrollTop>500;
-      }
+      },
+      tiao(){
+          $("html,body").animate({
+            scrollTop:0
+          },"slow")
+
+        }
     }
 
 }

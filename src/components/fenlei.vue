@@ -3,8 +3,7 @@
   <div class="fenlei animated bounceInLeft">
    		<div class="head">
    			<span @click="tui()" class="tui"></span>
-   			<h2>商品列表</h2>
-            
+   			<h2>商品列表</h2>            
    		</div>
    		<!-- 拖跩效果 -->
    		<div class="tuo">
@@ -52,8 +51,9 @@
                </dd>  
             </dl>
          </div>
+         <!-- 通过拖拽显示的内容 -->
          <div v-show="show2" >
-            <dl v-for="obj in filterBy(arr5,obj2)" class="zhan">
+            <dl v-for="obj in filterBy(arr4,obj2)" class="zhan">
                <dt>
                   <img :src="obj.img" alt="">
                </dt>
@@ -91,44 +91,44 @@ export default {
       		lei:"茶叶",
       		to:"/fenlei",
       		dao1:"dao",
-            lv:"茶"
+          lv:"茶"
 
       	},
       	{
       		lei:"酒/饮料",
       		to:"/Fjiu",
       		dao1:"dao",
-            lv:"酒"
+          lv:"酒"
       	},
       	{
       		lei:"保健食品",
       		to:"/Fbao",
       		dao1:"dao",
-             lv:"保健"
+            lv:"保健"
       	},
       	{
       		lei:"休闲食品",
       		to:"/Fxiu",
       		dao1:"dao",
-             lv:"休闲"
+          lv:"休闲"
       	},
       	{
       		lei:"干货特产",
       		to:"/gan",
       		dao1:"dao",
-             lv:"干货"
+          lv:"干货"
       	},
       	{
       		lei:"厨房调料",
       		to:"/chu",
       		dao1:"dao",
-             lv:"厨房"
+          lv:"厨房"
       	},
       	{
       		lei:"粮油米面",
       		to:"/liang",
       		dao1:"dao",
-             lv:"米"
+          lv:"米"
       	},
       	{
       		lei:"其他",
@@ -210,6 +210,7 @@ export default {
                img:"static/image/201501201623421459-200-200.jpg",
                p:"西域老汉· 盒装碧根果美国 年货长寿果坚果干果零食特产厂家批发205g T",
                jia:"22.80",
+               cheng:"最近成交",
               num:1,
               ren:11
          },
@@ -217,6 +218,7 @@ export default {
             img:"static/image/201501201601433359-200-200.jpg",
             p:"西域老汉·盒装葡萄干新疆 保健食品 年货无核提子特级树上黄特产厂家批发205g T",
             jia:"19.80",
+            cheng:"最近成交",
               num:2,
               ren:1155
          },
@@ -225,12 +227,14 @@ export default {
             p:"西域老汉·开口松子年货坚果干果休闲零食特产厂家批发205g×2包 T",
             jia:"59.60",
               num:3,
-              ren:123145
+              ren:123145,
+              cheng:"最近成交"
          },
          {
             img:"static/image/201501231643347618-200-200.jpg",
             p:"西域老汉· 碧根果年货长寿果坚果干果零食特产厂家批发205g×2包 T",
             jia:"45.60",
+            cheng:"最近成交",
               num:4,
               ren:11111
          },
@@ -238,6 +242,7 @@ export default {
             img:"static/image/201501201620269247-200-200.jpg",
             p:"西域老汉·开心果美国年货坚果干果特级自然开无漂白厂家205g×2包 T",
             jia:"63.60",
+            cheng:"最近成交",
              num:5,
              ren:23214
          },
@@ -245,6 +250,7 @@ export default {
             img:"static/image/201501201640018928-200-200.jpg",
             p:"西域老汉·盒装开口杏核新疆年货坚果零食特产蔚县小银杏厂家批发205g T",
             jia:"11.80",
+            cheng:"最近成交",
               num:6,
               ren:1425
          },
@@ -252,6 +258,7 @@ export default {
             img:"static/image/201501231633006149-200-200.jpg",
             p:"西域老汉·盒装开心果美国年货坚果干果特级大籽自然开无漂白厂家205g T",
             jia:"31.80",
+            cheng:"最近成交",
            num:7,
            ren:1422
          },
@@ -259,6 +266,7 @@ export default {
             img:"static/image/201501231659044924-200-200.jpg",
             p:"西域老汉·开口松子年货坚果干果休闲零食特产厂家批发205g×3包 T",
             jia:"89.40",
+            cheng:"最近成交",
               num:8,
               ren:1234
          },
@@ -266,6 +274,7 @@ export default {
             img:"static/image/201501231706277161-200-200.jpg",
             p:"西域老汉·巴旦木新疆年货干果薄壳大杏仁扁桃仁特产厂家205g×2包 保健食品T",
             jia:"37.60",
+            cheng:"最近成交",
               num:9,
               ren:64
          },
@@ -273,6 +282,7 @@ export default {
             img:"static/image/201501201615075003-200-200.jpg",
             p:"西域老汉·盒装夏威夷果澳洲年货坚果干果零食特产厂家批发开口器205g T ",
             jia:"22.80",
+            cheng:"最近成交",
               num:10,      
               ren:4444
          },
@@ -281,12 +291,14 @@ export default {
             p:"西域老汉·盒装开口大榛子美国年货坚果干果零食东北特产厂家批发205g T",
             jia:"18.80",
              num:11,
+             cheng:"最近成交",
               ren:642275
          },
          {
             img:"static/image/201501260953196418-200-200.jpg",
             p:"西域老汉·金福满堂C过年货大礼包干果零食特产厂家代理批发1230g T",
             jia:"198.00",
+            cheng:"最近成交",
               num:12,
               ren:6411
          }
@@ -338,6 +350,7 @@ export default {
                img:"static/image/201501201623421459-200-200.jpg",
                p:"西域老汉· 盒装碧根果美国 保健食品 干货长寿果坚果干果零食特产厂家批发205g T",
                jia:"22.80",
+               cheng:"最近成交",
               num:1,
               ren:11
          },
@@ -345,6 +358,7 @@ export default {
             img:"static/image/201501201601433359-200-200.jpg",
             p:"西域老汉·盒装葡萄干新疆 保健食品 干货无核提子特级树上黄特产厂家批发205g T",
             jia:"19.80",
+            cheng:"最近成交",
               num:2,
               ren:1155
          },
@@ -352,6 +366,7 @@ export default {
             img:"static/image/201501231659044924-200-200.jpg",
             p:"西域老汉·开口松子年货坚果干果休闲零食特产厂家批发205g×2包 T",
             jia:"59.60",
+            cheng:"最近成交",
               num:3,
               ren:123145
          },
@@ -359,6 +374,7 @@ export default {
             img:"static/image/201501231643347618-200-200.jpg",
             p:"西域老汉· 碧根果年货长寿果坚果干果零食特产厂家批发205g×2包 T",
             jia:"45.60",
+            cheng:"最近成交",
               num:4,
               ren:11111
          },
@@ -366,6 +382,7 @@ export default {
             img:"static/image/201501201620269247-200-200.jpg",
             p:"西域老汉·开心果美国年货坚果干果特级自然开无漂白厂家205g×2包 T",
             jia:"63.60",
+            cheng:"最近成交",
              num:5,
              ren:23214
          },
@@ -373,6 +390,7 @@ export default {
             img:"static/image/201501201640018928-200-200.jpg",
             p:"西域老汉·盒装开口杏核新疆年货坚果零食特产蔚县小银杏厂家批发205g T",
             jia:"11.80",
+            cheng:"最近成交",
               num:6,
               ren:1425
          },
@@ -380,6 +398,7 @@ export default {
             img:"static/image/201501231633006149-200-200.jpg",
             p:"西域老汉·盒装开心果美国年货坚果干果特级大籽自然开无漂白厂家205g T",
             jia:"31.80",
+            cheng:"最近成交",
               num:7,
               ren:1422
          },
@@ -387,6 +406,7 @@ export default {
             img:"static/image/201501231659044924-200-200.jpg",
             p:"西域老汉·开口松子年货坚果干果休闲零食特产厂家批发205g×3包 T",
             jia:"89.40",
+            cheng:"最近成交",
               num:8,
               ren:1234
          },
@@ -394,6 +414,7 @@ export default {
             img:"static/image/201501231706277161-200-200.jpg",
             p:"西域老汉·巴旦木新疆年货干果薄壳大杏仁扁桃仁特产厂家205g×2包 T",
             jia:"37.60",
+            cheng:"最近成交",
               num:9,
               ren:64
          },
@@ -401,6 +422,7 @@ export default {
             img:"static/image/201501201615075003-200-200.jpg",
             p:"西域老汉·盒装夏威夷果澳洲年货坚果干货零食特产厂家批发开口器205g T ",
             jia:"22.80",
+            cheng:"最近成交",
               num:10,      
               ren:4444
          },
@@ -408,6 +430,7 @@ export default {
              img:"static/image/201501201631336363-200-200.jpg",
             p:"西域老汉·盒装开口大榛子美国年货坚果干货零食东北特产厂家批发205g T",
             jia:"18.80",
+            cheng:"最近成交",
              num:11,
               ren:642275
          },
@@ -415,6 +438,7 @@ export default {
             img:"static/image/201501260953196418-200-200.jpg",
             p:"西域老汉·金福满堂C过年货大礼包干货零食特产厂家代理批发1230g T",
             jia:"198.00",
+            cheng:"最近成交",
               num:12,
               ren:6411
          },
@@ -423,7 +447,8 @@ export default {
             img:"static/image/shu-1.jpg",
             num:12,
             ren:61,
-            jia:"230.00"
+            jia:"230.00",
+            cheng:"最近成交",
          },
          {
       
@@ -431,7 +456,8 @@ export default {
             img:"static/image/shu-2.jpg",
             jia:"198.00",
            num:12,
-           ren:641
+           ren:641,
+           cheng:"最近成交",
          }
       ],
       arr4:[
@@ -480,6 +506,7 @@ export default {
                img:"static/image/201501201623421459-200-200.jpg",
                p:"西域老汉· 盒装碧根果美国 保健食品 干货长寿果坚果干果零食特产厂家批发205g T",
                jia:"22.80",
+                cheng:"最近成交",
               num:1,
               ren:11
          },
@@ -487,6 +514,7 @@ export default {
             img:"static/image/201501201601433359-200-200.jpg",
             p:"西域老汉·盒装葡萄干新疆 保健食品 干货无核提子特级树上黄特产厂家批发205g T",
             jia:"19.80",
+             cheng:"最近成交",
               num:2,
               ren:1155
          },
@@ -494,6 +522,7 @@ export default {
             img:"static/image/201501231659044924-200-200.jpg",
             p:"西域老汉·开口松子年货坚果干果休闲零食特产厂家批发205g×2包 T",
             jia:"59.60",
+             cheng:"最近成交",
               num:3,
               ren:123145
          },
@@ -501,6 +530,7 @@ export default {
             img:"static/image/201501231643347618-200-200.jpg",
             p:"西域老汉· 碧根果年货长寿果坚果干果零食特产厂家批发205g×2包 T",
             jia:"45.60",
+             cheng:"最近成交",
               num:4,
               ren:11111
          },
@@ -508,6 +538,7 @@ export default {
             img:"static/image/201501201620269247-200-200.jpg",
             p:"西域老汉·开心果美国年货坚果干果特级自然开无漂白厂家205g×2包 T",
             jia:"63.60",
+             cheng:"最近成交",
              num:5,
              ren:23214
          },
@@ -515,6 +546,7 @@ export default {
             img:"static/image/201501201640018928-200-200.jpg",
             p:"西域老汉·盒装开口杏核新疆年货坚果零食特产蔚县小银杏厂家批发205g T",
             jia:"11.80",
+             cheng:"最近成交",
               num:6,
               ren:1425
          },
@@ -522,6 +554,7 @@ export default {
             img:"static/image/201501231633006149-200-200.jpg",
             p:"西域老汉·盒装开心果美国年货坚果干果特级大籽自然开无漂白厂家205g T",
             jia:"31.80",
+             cheng:"最近成交",
               num:7,
               ren:1422
          },
@@ -529,6 +562,7 @@ export default {
             img:"static/image/201501231659044924-200-200.jpg",
             p:"西域老汉·开口松子年货坚果干果休闲零食特产厂家批发205g×3包 T",
             jia:"89.40",
+             cheng:"最近成交",
               num:8,
               ren:1234
          },
@@ -536,6 +570,7 @@ export default {
             img:"static/image/201501231706277161-200-200.jpg",
             p:"西域老汉·巴旦木新疆年货干果薄壳大杏仁扁桃仁特产厂家205g×2包 T",
             jia:"37.60",
+             cheng:"最近成交",
               num:9,
               ren:64
          },
@@ -543,6 +578,7 @@ export default {
             img:"static/image/201501201615075003-200-200.jpg",
             p:"西域老汉·盒装夏威夷果澳洲年货坚果干货零食特产厂家批发开口器205g T ",
             jia:"22.80",
+             cheng:"最近成交",
               num:10,      
               ren:4444
          },
@@ -550,6 +586,7 @@ export default {
              img:"static/image/201501201631336363-200-200.jpg",
             p:"西域老汉·盒装开口大榛子美国年货坚果干货零食东北特产厂家批发205g T",
             jia:"18.80",
+             cheng:"最近成交",
              num:11,
               ren:642275
          },
@@ -557,6 +594,7 @@ export default {
             img:"static/image/201501260953196418-200-200.jpg",
             p:"西域老汉·金福满堂C过年货大礼包干货零食特产厂家代理批发1230g T",
             jia:"198.00",
+             cheng:"最近成交",
               num:12,
               ren:6411
          },
@@ -565,7 +603,9 @@ export default {
             img:"static/image/shu-1.jpg",
             num:12,
             ren:61,
-            jia:"230.00"
+            jia:"230.00",
+             cheng:"最近成交",
+
          },
          {
       
@@ -573,7 +613,8 @@ export default {
             img:"static/image/shu-2.jpg",
             jia:"198.00",
            num:12,
-           ren:641
+           ren:641,
+            cheng:"最近成交",
          }
       ],
       filterText:""
@@ -592,10 +633,13 @@ methods:{
    qie:function(orderName){
     // console.log(orderName)
       this.orderBy1=orderName
+      this.show=false;
+      this.show1=true;
+      this.show2=false;
    },
    guolv:function(a){
       this.obj2=a;
-      // console.log(a)
+      console.log(a)
       this.show=false;
       this.show1=false;
       this.show2=true;
@@ -734,6 +778,7 @@ computed:{
 	}
 	.zhan dd p {
 		margin-top: 5px;
+    line-height: 20px;
 	}
 	.zhan dd p:nth-child(2){
 		color:red;

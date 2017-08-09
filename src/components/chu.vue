@@ -1,6 +1,5 @@
 <template>
   <div class="chu">
-      <!-- <iframe src="http://www.baidu.com" frameborder="0"></iframe> -->
   </div>
 </template>
 

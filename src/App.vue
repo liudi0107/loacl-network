@@ -3,16 +3,16 @@
     <router-view></router-view>
     <ul class="tebbar">
       <li>
-        <router-link   to="/"  class="a1"  active-class="a5" exact>首页</router-link>
+        <router-link   to="/"  class="a1"   >首页</router-link>
       </li>
       <li>
-        <router-link to="/fenlei" class="a2"  active-class="a6">分页</router-link>
+        <router-link to="/fenlei" class="a2"  >分页</router-link>
       </li>
       <li>
-        <router-link to="/car" class="a3" active-class="a7">购物车</router-link>
+        <router-link to="/car" class="a3" >购物车</router-link>
       </li>
       <li>
-        <router-link to="/vip" class="a4" active-class="a8">vip</router-link>
+        <router-link to="/geren" class="a4" >vip</router-link>
       </li>
     </ul>
   
@@ -24,6 +24,19 @@ import animate from "@/assets/animate.min.css"
 export default {
   name: 'app'  
 }
+  $(function(){
+  $(".tebbar a").eq(0).css("color", "orange")
+  $(".tebbar li").each(function(index){
+      $(this).click(function(){       
+        $(".tebbar a").css("color","")
+         $(".tebbar a").eq(index).css("color","orange")
+      })
+  })
+
+
+
+ })  
+
 </script>
 
 <style>
@@ -62,17 +75,42 @@ export default {
   height: 100%;
   display: inline-block;
   background:url(../static/image/index_btn.png) no-repeat;
+  font-size: 14px;
+  line-height: 73px;
+  background-position: left;
+}
+
+/*.a10{
+  text-decoration: none;
+  color:black;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background:url(../static/image/index_btn.png) no-repeat;
   font-size: 12px;
   line-height: 73px;
   background-position: left;
-  
-    
-
+  background-position: 50% 4px;
+  transtion:left 0.3 ease-out;
+  color: green;
 }
+.a11{
+   text-decoration: none;
+  color:black;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background:url(../static/image/index_btn.png) no-repeat;
+  font-size: 12px;
+  line-height: 73px;
+  background-position: left;
+
+}*/
+
 .tebbar .a1{
   background-position: 50% 4px;
   transtion:left 0.3 ease-out;
-}
+  }
 .tebbar .a2{
   background-position:50% -50px;
   transtion:left 0.3 ease-out;
@@ -84,7 +122,7 @@ export default {
   background-position:49% -149px;
 }
 
-.tebbar  .a5{
+/*.tebbar  .a5{
   background-position: 50% -210px;
 }
 .tebbar  .a6{
@@ -95,6 +133,6 @@ export default {
 }
 .tebbar  .a8{
   background-position: 49% -364px;
-}
+}*/
 
 </style>

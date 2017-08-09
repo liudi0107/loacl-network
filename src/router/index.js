@@ -125,11 +125,7 @@ export default new Router({
     	name:"Car",
     	component:Car
     },
-    {
-    	path:"/vip",
-    	name:"Vip",
-    	component:Vip
-    },
+   
     {
       path:"/zhu",
       name:"zhu",
@@ -149,7 +145,12 @@ export default new Router({
       path:"/geren",
       name:"geren",
       component:geren
-    }
+    },
+     {
+      path:"/vip",
+      name:"Vip",
+      component:Vip
+    },
     
   ]
 })

@@ -65,38 +65,39 @@ export default {
     // 点击注册进行验证
     zhu(){
       // 定义name的格式数字 字母（字母区分大小写）
-      var nReg = /^[a-z 0-9 A-Z]{6,20}$/g;
-      // 密码验证
-      var mReg =/^\w{6,20}$/g;
-      //手机号
-      var telReg=/^1[3,4,5,7,8]\d{9}$/
+      // var nReg = /^[a-z 0-9 A-Z]{6,20}$/g;
+      // // 密码验证
+      // var mReg =/^\w{6,20}$/g;
+      // //手机号
+      // var telReg=/^1[3,4,5,7,8]\d{9}$/
       if(this.username==""){
         this.zi="请输入用户名";
         this.isshow="ture"
-      }else if(this.password==""){
-        this.zi="请输入密码";
-        this.isshow="ture"
-      }else if(this.password2==""||this.password2!=this.password){
-        this.zi="两次密码不一致";
-        this.isshow="ture"
-      }else if(this.yan==""){
-        this.zi="请输入验证码";
-        this.isshow="ture"
-      }else  if(this.ipon==""){
-        this.zi="请输入手机号";
-        this.isshow="ture"
-      }else if(!nReg.test(this.username)){
-        this.zi="输入用户名格式错误";
-        this.isshow="ture"
-      }else if(!mReg.test(this.password)){
-        this.zi="输入密码格式错误";
-        this.isshow="ture"
-      }else if(!telReg.test(this.ipon)){
-        this.zi="输入手机号格式错误";
-        this.isshow="ture"
-      }else if(this.yan=!this.str){
-        this.zi="验证码错误";
-        this.isshow="ture"
+      
+      // }else if(this.password==""){
+      //   this.zi="请输入密码";
+      //   this.isshow="ture"
+      // }else if(this.password2==""||this.password2!=this.password){
+      //   this.zi="两次密码不一致";
+      //   this.isshow="ture"
+      // }else if(this.yan==""){
+      //   this.zi="请输入验证码";
+      //   this.isshow="ture"
+      // }else  if(this.ipon==""){
+      //   this.zi="请输入手机号";
+      //   this.isshow="ture"
+      // }else if(!nReg.test(this.username)){
+      //   this.zi="输入用户名格式错误";
+      //   this.isshow="ture"
+      // }else if(!mReg.test(this.password)){
+      //   this.zi="输入密码格式错误";
+      //   this.isshow="ture"
+      // }else if(!telReg.test(this.ipon)){
+      //   this.zi="输入手机号格式错误";
+      //   this.isshow="ture"
+      // }else if(this.yan=!this.str){
+      //   this.zi="验证码错误";
+      //   this.isshow="ture"
       }else{
          let data = {'username':this.username,'password':this.password}        
           axios.post('http://localhost:6500/xiang',data,{
